@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2022 at 07:39 AM
+-- Generation Time: Dec 04, 2022 at 12:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -67,6 +67,18 @@ CREATE TABLE `notes` (
   `created_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`id`, `contact_id`, `comment`, `created_by`, `created_at`) VALUES
+(1, 1, 'Mr. Scott is a well-driven individual and is always on time.', 2, '2022-12-04 00:10:42'),
+(2, 2, 'Mr. Shrute is a very loyal customer. ', 2, '2022-12-04 00:13:58'),
+(3, 3, 'The conversation with Ms. Beesley was very enlightening.', 1, '2022-12-04 00:17:52'),
+(4, 4, 'Ms. Martin added a new section to the article she was writing.', 4, '2022-12-04 00:19:40'),
+(5, 5, 'The conversation with Ms. Kapoor lasted for approximately 15 minutes.', 1, '2022-12-04 00:21:34'),
+(6, 6, 'Mr. Halpert had a few suggestions to make the business better.', 2, '2022-12-04 00:22:58');
 
 -- --------------------------------------------------------
 
@@ -132,7 +144,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
