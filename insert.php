@@ -9,10 +9,17 @@ $stmt = $conn->query("SELECT * FROM users");
 
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//echo "Hashed password using bcrypt: ",
-password_hash($password, PASSWORD_DEFAULT);
+//The unhashed password for Adele is password123
+//The unhashed password for Erin is hannone7
+//The unhashed password for Darryl is philbind7
+//The unhashed password for Andy is bernarda6
+//The unhashed password for David is wallaced5
+//The unhashed password for Jan is levij4
 
-//The hashed password is $2y$10$mHDmVc0q0vfPAX1k0H1.AuRjFLFwV.iABGr.RXOrrMfYw8KoQzjya
+
+
+
+
 
 
 ?>

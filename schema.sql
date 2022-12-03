@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2022 at 05:50 AM
+-- Generation Time: Dec 03, 2022 at 07:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -27,8 +27,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `contacts`
 --
 
-GRANT ALL PRIVILEGES ON dolphin_crm.* TO 'project2_user'@'localhost' IDENTIFIED BY 'password123';
-
 CREATE TABLE `contacts` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -43,6 +41,18 @@ CREATE TABLE `contacts` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `title`, `firstname`, `lastname`, `email`, `telephone`, `company`, `type`, `assigned_to`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'Mr.', 'Michael', 'Scott', 'michael.scott@paper.co', '876-236-9867', 'The Paper Company', 'SALES LEAD', 2, 2, '2022-12-03 07:17:33', '2022-12-03 07:17:33'),
+(2, 'Mr.', 'Dwight', 'Shrute', 'dwight.schrute@paper.co', '876-765-8765', 'The Paper Company', 'SUPPORT', 3, 2, '2022-12-03 07:27:02', '2022-12-03 07:27:02'),
+(3, 'Ms.', 'Pam', 'Beesley', 'pam.beesley@dunder.co', '876-345-8456', 'Dunder Mifflin', 'SUPPORT', 5, 1, '2022-12-03 07:28:52', '2022-12-03 07:28:52'),
+(4, 'Ms.', 'Angela', 'Martin', 'angela.martin@vance.co', '876-987-4567', 'Vance Refrigeration', 'SALES LEAD', 2, 4, '2022-12-03 07:31:31', '2022-12-03 07:31:31'),
+(5, 'Ms.', 'Kelly', 'Kapoor', 'kelly.kapoor@vance.co', '876-456-2344', 'Vance Refrigeration', 'SUPPORT', 5, 1, '2022-12-03 07:33:40', '2022-12-03 07:33:40'),
+(6, 'Mr.', 'Jim', 'Halpert', 'jim.halpert@dunder.co', '876-234-4567', 'Dunder Mifflin', 'SALES LEAD', 6, 2, '2022-12-03 07:36:25', '2022-12-03 07:36:25');
 
 -- --------------------------------------------------------
 
@@ -79,7 +89,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `role`, `created_at`) VALUES
-(1, 'Adele', 'Fraser', '$2y$10$mHDmVc0q0vfPAX1k0H1.AuRjFLFwV.iABGr.RXOrrMfYw8KoQzjya', 'admin@project2.com', 'Admin', '2022-12-03 05:36:58');
+(1, 'Adele', 'Fraser', '482c811da5d5b4bc6d497ffa98491e38', 'admin@project2.com', 'Admin', '2022-12-03 05:36:58'),
+(2, 'Jan', 'Levinson', '6ae259fd52a5b9e8acd88a7cf4e23777', 'jan.levinson@paper.co', 'Member', '2022-12-03 06:38:59'),
+(3, 'David ', 'Wallace', 'fa04e522cb88ae1064b044a53773390e', 'david.wallace@paper.co', 'Admin', '2022-12-03 06:41:16'),
+(4, 'Andy', 'Bernard', '89259b230cad3e3179e98620df10d871', 'andy.bernard@paper.co', 'Member', '2022-12-03 06:42:35'),
+(5, 'Darryl', 'Philbin', '6e797afef4e490fcd874549b53aa9b46', 'darryl.philbin@paper.co', 'Member', '2022-12-03 06:44:52'),
+(6, 'Erin', 'Hannon', '2bb3c9974645fe54634699c4c1da246c', 'erin.hannon@paper.co', 'Member', '2022-12-03 06:46:26');
 
 --
 -- Indexes for dumped tables
@@ -111,7 +126,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `notes`
@@ -123,7 +138,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
