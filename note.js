@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',function(){
             document.getElementById("area").focus();
         }
         else{
-            $.ajax({type: "POST", url= "addnote.php", data: {view: $("#assign").val(), comment:$("#area").val()}})
+            $.ajax({type: "POST", url: "addnote.php", data: {view: $("#assign").val(), comment:$("#area").val()}})
             
             var contact =document.getElementById('assign').value;
             var xhttp = new XMLHttpRequest();

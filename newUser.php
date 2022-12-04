@@ -37,8 +37,8 @@
             <input type="password" name="password" id="password" required>
             <label for="role">Role</label>
             <select name="role" id="role">
-                <option value="member">Member</option>
-                <option value="admin">Admin</option>                
+                <option value="Member">Member</option>
+                <option value="Admin">Admin</option>                
             </select>
 
             <button type="submit" id="submit-btn">Save</button>
