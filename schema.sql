@@ -59,7 +59,6 @@ INSERT INTO `contacts` (`id`, `title`, `firstname`, `lastname`, `email`, `teleph
 --
 -- Table structure for table `notes`
 --
-
 CREATE TABLE `notes` (
   `id` int(11) NOT NULL,
   `contact_id` int(11) NOT NULL,
