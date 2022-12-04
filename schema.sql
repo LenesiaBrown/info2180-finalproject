@@ -6,6 +6,11 @@
 -- Generation Time: Dec 04, 2022 at 12:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
+DROP DATABASE IF EXISTS dolphin_crm;
+CREATE DATABASE dolphin_crm;
+USE dolphin_crm;
+
+GRANT ALL PRIVILEGES ON dolphin_crm.* TO 'project2_user'@'localhost' IDENTIFIED BY 'password123';
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
