@@ -4,7 +4,7 @@ $username = 'project2_user';
 $password = 'password123';
 $dbname = 'dolphin_crm';
 
-$title =filter_var($_POST['title'],FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+$title =filter_var($_POST['title'],FILTER_SANITIZE_STRING);
 $Fname =filter_var($_POST['Fname'],FILTER_SANITIZE_STRING);
 $Lname =filter_var($_POST['Lname'],FILTER_SANITIZE_STRING);
 $email =filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
