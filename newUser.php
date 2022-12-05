@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>New User</title>
     <link rel="stylesheet" href="newUser.css">
     <script src="newUser.js"></script>
-    <title>New User</title>
 </head>
 <body>
     <header>
@@ -15,13 +17,19 @@
 
     <div id="wrapper">
         <nav id="nav-bar">
-            <button class="navButton"><img id="home-icon" src="images/homeIcon.png"> Home</button>
-            <button class="navButton"><img id="contact-icon" src="images/newContactIcon.png"> New Contact</button>
+            <a href="dashboard.php">
+                <button class="navButton"><img id="home-icon" src="images/homeIcon.png"> Home</button>
+            </a>
+            <a href="note.php">
+                <button class="navButton"><img id="contact-icon" src="images/newContactIcon.png"> New Contact</button>
+            </a>
             <a href="userList.php">
                 <button class="navButton"><img id="users-icon" src="images/usersIcon.png">Users</button>
             </a>
             <hr>
+            <a href="logIn.php">
             <button class="navButton"><img id="logout-icon" src="images/logoutIcon.png"> Logout</button>
+            </a>
         </nav>
     </div>
 
