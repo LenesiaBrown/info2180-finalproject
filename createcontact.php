@@ -15,11 +15,11 @@ $assignedto =filter_var($_POST['assign'],FILTER_SANITIZE_STRING);
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 $stmt = $conn->query("SELECT * FROM contacts WHERE email='$email'");
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if(count($results)==0){
+if(count($result)==0){
     session_start();
-    $created_by= $_SESSION['id'];
+    $created_by =$_SESSION['user'][0];
 
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $conn->beginTransaction();
