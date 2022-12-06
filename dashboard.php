@@ -1,9 +1,9 @@
 <?php
 
-    // session_start();
-    // if(!isset($_SESSION['admin'])){
-    //     header('location:login.php');
-    // }
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header('Location: login.php');
+    }
 
 ?>
 
@@ -32,7 +32,7 @@
             <a href="dashboard.php">
                 <button class="navButton"><img id="home-icon" src="images/homeIcon.png"> Home</button>
             </a>
-            <a href="note.php">
+            <a href="newContact.php">
                 <button class="navButton"><img id="contact-icon" src="images/newContactIcon.png"> New Contact</button>
             </a>
             <a href="userList.php">
@@ -48,7 +48,7 @@
         <div id="updating-div">
             <div id="section-header">
                 <h1>Dashboard</h1>
-                <button id="add-contact-button" class="headerButton">+ Add Contact</button>
+                <a href="newcontact.php"><button id="add-contact-button" class="headerButton">+ Add Contact</button></a>
             </div>
             
 
@@ -61,6 +61,7 @@
                     <button id="sales-leads-button" class="filterButton">Sales Leads</button>
                     <button id="support-button" class="filterButton">Support</button>
                     <button id="assigned-to-me-button" class="filterButton">Assigned to me</button>
+                    
                 </div>
 
                 <br>

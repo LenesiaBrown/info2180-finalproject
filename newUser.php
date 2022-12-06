@@ -20,7 +20,7 @@
             <a href="dashboard.php">
                 <button class="navButton"><img id="home-icon" src="images/homeIcon.png"> Home</button>
             </a>
-            <a href="note.php">
+            <a href="newcontact.php">
                 <button class="navButton"><img id="contact-icon" src="images/newContactIcon.png"> New Contact</button>
             </a>
             <a href="userList.php">
@@ -36,22 +36,22 @@
     <div id="user-form">
         <form action="newUser.php" method="post">
             <label for="fname">First Name</label>
-            <input type="text" name="fname" id="fname" placeholder="Jane" required>
+            <input type="text" name="fname" id="fname" placeholder="Jane" required><br><br>
             <label for="lname">Last Name</label>
-            <input type="text" name="lname" id="lname" placeholder="Doe" required>
+            <input type="text" name="lname" id="lname" placeholder="Doe" required><br><br>
             <label for="email" >Email</label>
-            <input type="email" name="email" id="email" placeholder="something@example.com" required>
+            <input type="email" name="email" id="email" placeholder="something@example.com" required><br><br>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
+            <input type="password" name="password" id="password" required><br><br>
             <label for="role">Role</label>
             <select name="role" id="role">
                 <option value="Member">Member</option>
                 <option value="Admin">Admin</option>                
-            </select>
+            </select><br><br>
 
-            <button type="submit" id="submit-btn">Save</button>
+            <button type="submit" id="submit-btn" class="btn">Save</button>
         </form>
-        <p id="message"></p>
+        <p class="error-message"></p>
 
         
     </div>
@@ -67,7 +67,7 @@
 
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+        
         $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -85,7 +85,7 @@
     
 
     function addUser($fname, $lname, $hashPass, $email, $role) {
-        $created_at = date('h:i a');
+        $created_at = date('Y-m-d H:i:s');
         $stmt = $GLOBALS['conn']->prepare("INSERT INTO `users` (`firstname`, `lastname`, `password`, `email`, `role`, `created_at`) VALUES (:fname, :lname,:hashPass, :email, :role, :created_at)");
                         
         $stmt->bindParam(':fname', $fname, PDO::PARAM_STR);
@@ -95,6 +95,7 @@
         $stmt->bindParam(':role', $role, PDO::PARAM_STR);
         $stmt->bindParam(':created_at', $created_at, PDO::PARAM_STR);
 
+        
         if ($stmt->execute()) {
             echo("<script>alert('New user successfully added!');</script>");
         }

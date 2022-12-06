@@ -78,19 +78,4 @@ my_assigned_filter.addEventListener('click', () => {
     })
 });
 
-home.addEventListener('click', () => {
-    fetch("dashboardFilter.php")
-    .then((response)=>{
-        if(response.ok){
-            return response.text();
-        }else{
-            return Promise.reject("An error has occured");
-        }
-    })
-    .then((data)=>{
-        resultDiv.innerHTML = data;
-    })
-    .catch((error)=>{
-        console.log("Sorry an error has occured: " + error);
-    })
-});
+

@@ -1,6 +1,7 @@
 <?php
 
-$userId = 5;
+session_start();
+$userId = intval($_SESSION['user'][0]);
 
 $host = 'localhost';
 $username = 'project2_user';
@@ -10,17 +11,6 @@ $dbname = 'dolphin_crm';
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
 
-// if(isset($_SESSION['email'])){
-//     $email = $_SESSION['email'];
-//     $stmt = $conn->prepare("SELECT * FROM `user` WHERE `email` = :email");
-//     $stmt->bindParam(':email', $email, PDO::PARAM_INT);
-//     $stmt->execute();
-
-//     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//     $userId = $results[0]['id'];
-    
-// }
 
 if (isset($_GET['filter'])) {
     $filter = strip_tags(stripslashes(strval($_GET['filter'])));

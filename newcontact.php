@@ -11,7 +11,7 @@
         <!-- <script src="createcontact.js"></script> -->
     </head>
     <body>
-        <!-- <?php include 'index.php';?> -->
+        
         <div class = "container">
             <!-- <div class ="screen">
                 <div class ="buttons">
@@ -27,7 +27,7 @@
             <a href="dashboard.php">
                 <button class="navButton"><img id="home-icon" src="images/homeIcon.png"> Home</button>
             </a>
-            <a href="note.php">
+            <a href="newContact.php">
                 <button class="navButton"><img id="contact-icon" src="images/newContactIcon.png"> New Contact</button>
             </a>
             <a href="userList.php">
@@ -42,7 +42,7 @@
                 <div class= "records">
                     <h1>New Contact</h1>
                     <div class="record2">
-                        <form method="post" id="form" action="">
+                        <form method="post" id="form" action="createcontact.php">
                             <div class="table">
                                 <div class="cell">
                                     <label for="title">Title</label><br>
@@ -75,7 +75,7 @@
                                     </div>
                                          <div class="cell"> 
                                              <label>Telephone number</label>
-                                             <input type="text" name="telephone" id="telephone" pattern ="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Telephone number must be in the format: XXX-XXX-XXXX"required/>
+                                             <input type="text" name="telephone" id="telephone" placeholder="XXX-XXX-XXXX" pattern ="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Telephone number must be in the format: XXX-XXX-XXXX"required/>
                                         </div>
                                     </div>
                                     <div class="table">
@@ -95,19 +95,27 @@
                                     <div class="table">
                                          <div class="cell"> 
                                              <label for= "assignedto">Assign To</label><br>
-                                             <select id="type" name="type">
-                                                <option value="1">Michael Scott</option>
-                                                <option value="2">Dwight Shrute</option>
-                                                <option value="3">Pam Beesley</option>
-                                                <option value="4">Angela Martin</option>
-                                                <option value="5">Kelly Kapoor</option>
-                                                <option value="6">Jim Halpert</option>
+                                             <select id="assignedto" name="assignedto">
+                                             <?php
+                                                $host = 'localhost';
+                                                $username = 'project2_user';
+                                                $password = 'password123';
+                                                $dbname = 'dolphin_crm';
+                                            
+                                                $conn= new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+                                                $users = $conn->query('SELECT * FROM users');
+
+                                                foreach($users as $user):
+                                            ?>
+                                                <option value="<?=$user['id']?>"><?=$user['firstname']." ".$user['lastname']?></option>
+                                                
+                                                <?php endforeach; ?>
                                             </select>
                                         </div><br>
                                     <div class ="cell"></div>
                                     </div><br>
                                     <div class="save-button">
-                                        <button id="save">Save</button>
+                                        <input type="submit" value="Save" id="save"></input>
                                     </div>
                                  </form>
                             </div>
