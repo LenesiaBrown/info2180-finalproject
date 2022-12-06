@@ -11,7 +11,7 @@
         $notes = filter_var($_POST['comment'],FILTER_SANITIZE_STRING);
 
         session_start();
-        $created_by =$_SESSION['id'];
+        $created_by =$_SESSION['user'][0];
 
         $conn->beginTransaction();
         $conn->exec("INSERT INTO notes (id, contact_id, comment, created_by, created_at) VALUES ('$id','$id','$notes','$created_by', Current_Timestamp)");

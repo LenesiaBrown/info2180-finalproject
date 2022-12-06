@@ -9,7 +9,7 @@
     
     if(isset($_GET['to-me'])){
         session_start();
-        $assignedto = $_SESSION['id'];
+        $assignedto = $_SESSION['user'][0];
         $id = $_GET['to-me'];
         
         $conn->beginTransaction();
@@ -17,18 +17,18 @@
         $conn->commit();
 
         $stmt = $conn->query("SELECT * FROM users WHERE id='$assignedto'");
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo $results[0]['firstname'].''.$results[0]['lastname'];
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo $result[0]['firstname'].''.$results[0]['lastname'];
     }
     if(isset($_GET['type'])){
         $id = $_GET['type'];
 
         $stmt = $conn->query("SELECT * FROM contacts WHERE id='$id'");
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if($results[0]['type']== "SUPPORT"){
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if($result[0]['type']== "SUPPORT"){
             $type="SALES LEAD";
         }
-        else if($results[0]['type']=="SALES LEAD"){
+        else if($result[0]['type']=="SALES LEAD"){
             $type="SUPPORT";
         }
 
@@ -37,9 +37,9 @@
         $conn->commit();
 
         $stmt = $conn->query("SELECT * FROM contacts WHERE id='$assignedto'");
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if($results[0]['type'] == "SUPPORT"){
+        if($result[0]['type'] == "SUPPORT"){
             echo '<i class="fa fa-exchange" aria-hidden="true"></i>';
             echo "Switch to Support";
         }
@@ -52,7 +52,7 @@
         $conn->commit();
 
         $stmt = $conn->query("SELECT * FROM contacts WHERE id='$assignedto'");
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 ?>
