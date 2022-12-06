@@ -41,11 +41,11 @@
         foreach($results as $row)
         echo "<tr>
         <tr>
-        <td><a> href=viewnote.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
+        <td><a> href=dashboard.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
         <td>".$row['email']."</td>
         <td>".$row['company']."</td>
         <td>".$row['type']."</td>   
-        <td><a href=viewnote.php?note= ".$row['id']." >View</a></td>
+        <td><a href=dashboard.php?note= ".$row['id']." >View</a></td>
         </tr>";
     }
     else if (isset($_GET['results']) && $_GET['results']='support'){
@@ -62,11 +62,11 @@
         foreach($results as $row)
         echo "<tr>
         <tr>
-        <td><a> href=viewnote.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
+        <td><a> href=dashboard.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
         <td>".$row['email']."</td>
         <td>".$row['company']."</td>
         <td>".$row['type']."</td>   
-        <td><a href=viewnote.php?note= ".$row['id']." >View</a></td>
+        <td><a href=dashboard.php?note= ".$row['id']." >View</a></td>
         </tr>";
     }
     else if (isset($_GET['results']) && $_GET['results']='mine'){
@@ -85,11 +85,11 @@
         foreach($results as $row)
         echo "<tr>
         <tr>
-        <td><a> href=viewnote.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
+        <td><a> href=dashboard.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
         <td>".$row['email']."</td>
         <td>".$row['company']."</td>
         <td>".$row['type']."</td>   
-        <td><a href=viewnote.php?note= ".$row['id']." >View</a></td>
+        <td><a href=dashboard.php?note= ".$row['id']." >View</a></td>
         </tr>";
     }
     else{
@@ -106,11 +106,11 @@
         foreach($results as $row)
         echo "<tr>
         <tr>
-        <td><a> href=viewnote.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
+        <td><a> href=dashboard.php?note=".$row['title']." ".$row['firstname']." ".$row['lastname']. "</td>
         <td>".$row['email']."</td>
         <td>".$row['company']."</td>
         <td>".$row['type']."</td>   
-        <td><a href=viewnote.php?note= ".$row['id']." >View</a></td>
+        <td><a href=dashboard.php?note= ".$row['id']." >View</a></td>
         </tr>";
     }
 ?>

@@ -15,9 +15,9 @@ $assignedto =filter_var($_POST['assign'],FILTER_SANITIZE_STRING);
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 $stmt = $conn->query("SELECT * FROM contacts WHERE email='$email'");
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if(count($result)==0){
+if(count($results)==0){
     session_start();
     $created_by =$_SESSION['user'][0];
 
