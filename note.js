@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded',function(){
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET","note.php?updated="+contact,false);
             response = xhttp.responseText;
-            document.getElementById("result").innerHTML =response;
+            document.getElementsById("result").innerHTML =response;
         }
     })
 });

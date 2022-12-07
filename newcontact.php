@@ -1,14 +1,11 @@
 <?php session_start();
-     if (isset ($_SESSION['id'])){
+     if (isset ($_SESSION['user'][0])){
 ?>
 <html>
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Contact</title>
-    <link rel ="stylesheet" href="">
-    <script src=""></script>
-    <link rel ="stylesheet" href="">
     <script src="createcontact.js"></script>
     </head>
     <body>
@@ -18,9 +15,9 @@
                 <div class ="buttons">
                     <div><a href="dashboard.php"><i class ="home" aria-hidden="true"></i>Home</a></div>
                     <div><a href="createcontact.php"><i class ="add-new-contact" aria-hidden="true"></i>New Contact</a></div>
-                    <div><a href="newUser.php"><i class ="users" aria-hidden="true"></i>Users</a></div>
+                    <div><a href="userList.php"><i class ="users" aria-hidden="true"></i>Users</a></div>
                     <hr>
-                    <div><a href=""><i class ="home" aria-hidden="true"></i>Logout</a></div>
+                    <div><a href=""><i class ="logout" aria-hidden="true"></i>Logout</a></div>
                 </div>
             </div>
             <div class= "background">
