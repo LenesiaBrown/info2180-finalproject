@@ -1,4 +1,8 @@
+<script src="viewcontact.js"></script>
 <?php
+    if (!isset($_GET['results']) &&is_numeric($_GET['results'])) {
+        Header("Location: dashboard.php");
+    }
     $host = 'localhost';
     $username = 'project2_user';
     $password = 'password123';
@@ -13,12 +17,14 @@
         $users= $stmt_users->fetchAll(PDO::FETCH_ASSOC);
         foreach($results as $result){
             if($result['id'] ==$_GET['results'] ){
-                
+            $GLOBALS['fname'] = $result['firstname'];
                 echo "
                     <div id='contact-heading'>
                         <p>".$result['title']." ".$result['firstname']." ".$result['lastname']."</p>
                         <p>Created on ".$result['created_at']."</p>
                         <p>Updated at on ".$result['updated_at']."</p>
+                        <button id = 'assign-me'> Assign to me</button>
+                        <button id = 'switch-to-sale'>Switch to Sales Lead </button>
                     </div>
                     <div id = 'contact-details'>
                         <label for = 'email'>Email</email>
@@ -148,3 +154,33 @@
         </tr>";
     }
 ?>
+
+<div id="notes">
+<p>Notes</p>
+<?php
+
+    if (isset($_GET['results'])) {
+        $contact_id = $_GET['results'];
+    $stmt = $conn->query("SELECT * FROM notes WHERE contact_id = $contact_id");
+    $results = $stmt->fetchAll();
+    $stmt_users = $conn->query("SELECT * FROM users");
+    $users= $stmt_users->fetchAll(PDO::FETCH_ASSOC);
+    foreach($results as $result){
+        foreach($users as $user){
+            if ($result['created_by'] == $user['id']){
+                $name = $user['firstname']. " ". $user['lastname'];
+                echo $name;
+                echo "<p><?=$name?></p>
+                    <p>".$result['comment']."</p>
+                    <p>Created at</p>
+                    <p>".$result['created_at']."</p>";
+            }
+        }
+    }
+}
+?>
+<label for="new-note">Add a note about <?=$GLOBALS['fname']?></label>
+<textarea name="new-note" id="new-note" cols="30" rows="10" placeholder="Enter details here"></textarea>
+<button id="save-note" itemid="<?=$_GET['results']?>">Add Note</button>
+<p id="error-msg"></p>
+</div>
