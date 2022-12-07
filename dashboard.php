@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="dashboard.css">
     <script defer src="dashboardFilter.js"></script>
+    <script defer src="logout.js"></script>
 
     
 </head>
