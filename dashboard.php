@@ -93,7 +93,7 @@
                     ?>
 
                         <tr>
-                            <td><?=$row['title']." ".$row['firstname']." ".$row['lastname']?></td>
+                            <td><a href="viewcontact.php?results=<?=$row['id']?>" class="view-contact-link"><?=$row['title']." ".$row['firstname']." ".$row['lastname']?></a></td>
                             <td><?=$row['email']?></td>
                             <td><?=$row['company']?></td>
 
@@ -108,7 +108,7 @@
 
                             <?php } ?>  
         
-                            <td><a href="<?=$row['id']?>" class="view-contact-link">View</a></td>
+                            <td><a href="viewcontact.php?results=<?=$row['id']?>" class="view-contact-link">View</a></td>
                         </tr>
 
                         <?php endforeach ?>
